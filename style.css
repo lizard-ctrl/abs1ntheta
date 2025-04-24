@@ -1,0 +1,654 @@
+@font-face {
+  font-family: "Goozette";
+  src: url("fonts/Goozette.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Goozee";
+  src: url("fonts/Goozee.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  background-image: url('flash/flashv/16.png');
+  background-repeat: repeat;
+  background-size: 200px;
+ background-color: black;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  
+  margin: 0;
+  overflow: hidden;
+  
+}
+
+.container {
+  position: absolute;
+  z-index: -500;
+  width: 100vw;
+  height: 100vh;
+}
+.random-img {
+  position: absolute;
+  transition: transform 2s ease-in-out;
+  animation: pulse 5s infinite alternate ease-in-out;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+#abtX{
+  position: absolute;
+ top: 10%;
+ right: 8%;
+}
+
+h2 {
+  font-family: "Goozette";
+  z-index: 1000;
+  position: absolute;
+  color: hotpink;
+  text-align: center;
+  transition: font-family 0.5s ease-in-out;
+  
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14vw; 
+  white-space: nowrap; 
+}
+
+#book{
+  position: absolute;
+  right: 2%;
+  top: 0%;
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+#book:hover {
+  transform: scale(1.1); 
+}
+
+.star {
+  color: rgb(118, 227, 169);
+  z-index: -1000;
+  position: absolute;
+  font-size: 30px; 
+  animation: pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.nav-container {
+  position: relative;
+  display: block;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.circle-btn {
+  position: absolute;
+  top: 3%;
+  
+  width: 80px;
+  height: 80px;
+  background-color: red;
+  color: white;
+  font-size: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: width 0.5s ease, font-size 0.3s ease;
+}
+
+.nav-links {
+  display:column; 
+  justify-content: space-evenly;
+  gap: 5px;
+  opacity: 1;
+  color: lightskyblue;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  z-index: 999;
+}
+
+.nav-link {
+  font-family: "Goozette";
+  color: lightskyblue;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-shadow: hotpink 0px 0px 20px, hotpink 0px 0px 10px; 
+  font-size: 1.7vw;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+
+#contactBar {
+  font-family: "Goozee";
+  position: fixed;
+  bottom: 30%;
+  left: 0;
+  width: 100%;
+  text-shadow: hotpink 0px 0px 20px, hotpink 0px 0px 10px; 
+  color: lightskyblue;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 3vw;
+  z-index: 99;
+}
+
+#contactBar a {
+  color: white;
+  text-decoration: underline;
+}
+
+#contactBar a:hover {
+  text-decoration: none;
+}
+
+.nav-links .close-btn {
+  display: none;
+}
+
+
+.close-btn {
+  color: black;
+  padding: 10px 20px;
+  font-size: 10px;
+  text-decoration: none;
+  position: absolute;
+  top: -50px; 
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.link-bar {
+  
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  display:grid; 
+  gap: 30px; 
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+}
+
+.link-icon img {
+  width: 100px; 
+  height: 100px;
+  object-fit: cover;
+}
+
+.link-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.link-bar a:hover {
+  transform: scale(1.1); 
+}
+
+.circle-btn.active {
+  width: 0px; 
+  border-radius: 0; 
+}
+
+.circle-btn.active + .nav-links {
+  opacity: 1; 
+  pointer-events: auto; 
+}
+
+.responsive-img {
+  padding: 20px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto; /* centers the image horizontally */
+  object-fit: cover;
+}
+
+.content {
+  z-index: 3000;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  display: none;
+  
+  padding: 20px;
+  margin-top: 20px;
+  width: 60%;
+  border-radius: 10px;
+  overflow: scroll;
+}
+
+#about img{
+  width: 90%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.content.active {
+  display: block;
+}
+
+.content .close-btn {
+  font-size: 30px;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.skull {
+  color: lightskyblue;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  font-size: 55px;
+  opacity: 1;
+  animation: fadeOut 10s forwards;
+   /* or hot pink or whatever you want */
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+#resume{
+  box-shadow: 0px 0px 25px 25px rgba(255, 78, 228, 0.8);
+  background-color: rgba(255, 78, 228, 0.8);
+    position: absolute;
+    z-index:1000;
+    top: 5%;
+    left: 45%;
+    width: 35%;
+    height: 80%;
+}
+.pdf{
+    z-index:2000;
+   
+    width: 90%;
+     height:100%;
+}
+
+#about{
+  box-shadow: 0px 0px 25px 25px rgba(255, 78, 228, 0.8);
+  background-color: rgba(255, 78, 228, 0.8);
+  color: hotpink;
+  top: 10%;
+    width: 50%;
+    height: 50%;
+    font-size: 120%;
+    padding: 5%;
+    overflow: scroll;
+}
+
+#about1{
+  box-shadow: 0px 0px 25px 25px lightskyblue;
+  border-radius: 40%;
+  background-color: lightskyblue;
+  
+  color: hotpink;
+  top: 25%;
+    width: 50%;
+    height: 35%;
+    font-size: 160%;
+    padding: 5%;
+    overflow: scroll;
+}
+
+
+
+
+iframe {
+  width: 95%;
+  height: 100%;
+  border: none; 
+}
+
+#info{
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 60%;
+    background-color: none;
+
+}
+
+.mannequin-row {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.mannequin-wrapper {
+  position: relative;
+  width: 33%; /* adjust as needed */
+  aspect-ratio: 3 / 5; /* or match your mannequin proportions */
+}
+
+.mannequin {
+  width: 100%;
+  display: block;
+}
+
+.tattoo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tattoo {
+  position: absolute;
+  width: 60px;
+  transform: rotate(var(--rotation));
+}
+
+#desktopHide{
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+
+  body {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    background-color: black;
+   
+    margin: 0;
+    overflow: hidden;
+    transition: background-image 1s none;
+  }
+
+  .nav-links {
+    display:column; 
+    justify-content: space-evenly;
+    gap: 10px;
+    opacity: 1;
+    color: lightskyblue;
+    padding: 30px;
+    border-radius: 40px;
+    position: absolute;
+    left: 6%;
+    z-index: 999;
+  }
+
+  .nav-link {
+    
+    font-size: 8vw; 
+    padding: 15px;
+  }
+
+  #contactBar {
+    font-size: 7vw; 
+    padding: 1px 0;
+  }
+
+  #mobileHide{
+    display: none;
+  }
+
+  h2 {
+    z-index: 1000;
+    position: absolute;
+    color: hotpink;
+    text-align: center;
+    transition: font-family 0.5s ease-in-out;
+    
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14vw; 
+    white-space: wrap; 
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9; 
+  }
+
+  #desktopHide{
+    display: block;
+  }
+  
+  .container {
+    top: 5%;
+    left: -15%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    gap: 0px;
+    padding: 0px;
+  }
+
+  #contactBar {
+    text-shadow: hotpink 0px 0px 20px, hotpink 0px 0px 10px; 
+    bottom: 35%;
+    
+  }
+
+  .random-img {
+    width: 10px; 
+    height: auto;
+  }
+
+  .content {
+    z-index: 3000;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    display: none;
+   
+    padding: 20px;
+    margin-top: 20px;
+    width: 60%;
+    border-radius: 10px;
+    overflow: scroll;
+  }
+
+  #about1{
+    box-shadow: 0px 0px 25px 25px lightskyblue;
+    border-radius: 40%;
+    background-color: lightskyblue;
+    left: 5%;
+    color: hotpink;
+    top: 20%;
+      width: 70%;
+      height: 45%;
+      font-size: 160%;
+      padding: 10%;
+      overflow: scroll;
+  }
+
+  #abtX{
+    position: absolute;
+   top: 10%;
+   right: 8%;
+  }
+
+  #resume {
+    position: absolute;;
+  top: 20%;
+  left: 3%;
+  font-size: 120%;
+  width: 80%;
+  height: 50%;
+  padding: 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.pdf {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#about {
+  position: absolute;;
+  top: 20%;
+  left: 3%;
+  font-size: 120%;
+  width: 80%;
+  height: 50%;
+  padding: 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#info{
+    position: absolute;
+    left: 5%;
+    width: 80%;
+}
+
+.content .close-btn {
+  font-size: 30px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+
+.link-bar {
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  display: flex;
+  gap: 20px; 
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+}
+
+.link-icon img {
+  width: 75px; 
+  height: 75px;
+  object-fit: cover;
+}
+
+.link-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.link-bar a:hover {
+  transform: scale(1.1); 
+}
+
+
+iframe {
+  width: 95%;
+  height: 95%;
+  border: none; 
+}
+
+  .link-bar {
+    right: 0; 
+    left: 0; 
+    justify-content: center; 
+    bottom: 10px; 
+  }
+
+  .link-bar a {
+    margin: 0 10px; 
+  }
+
+  #phoneNo{
+    display: none;
+  }
+
+  #info{
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    width: 60%;
+    background-color: none;
+
+}
+
+.mannequin-row {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.mannequin-wrapper {
+  position: relative;
+  width: 33%; /* adjust as needed */
+  aspect-ratio: 3 / 5; /* or match your mannequin proportions */
+}
+
+.mannequin {
+  width: 250%;
+  display: block;
+}
+
+.tattoo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tattoo {
+  position: absolute;
+  width: 30px;
+  transform: rotate(var(--rotation));
+}
+
+
+
+}
