@@ -56,41 +56,46 @@ document.addEventListener('mousemove', (e) => {
   
       
      
-    const flashImages = [];
-    for (let i = 1; i <= 33; i++) {
-      flashImages.push(`flash/flashv/${i}.png`);
-    }
-  
-    document.getElementById('lucky-button').addEventListener('click', () => {
-    const wrappers = document.querySelectorAll('.mannequin-wrapper');
-  
-    wrappers.forEach(wrapper => {
-      const container = wrapper.querySelector('.tattoo-container');
-      
-      // Clear previous tattoos
-      container.innerHTML = '';
-  
-      for (let i = 0; i < 3; i++) {
-        const img = document.createElement('img');
-        img.src = flashImages[Math.floor(Math.random() * flashImages.length)];
-        img.classList.add('tattoo');
-  
-        // Random size between 40px and 100px
-        const randomSize = 60 + Math.random() * 100;
-        img.style.width = `${randomSize}px`;
-  
-        // Random position
-        img.style.top = `${Math.random() * 70}%`;
-        img.style.left = `${Math.random() * 50}%`;
-  
-        // Random rotation
-        const angle = Math.floor(Math.random() * 360);
-        img.style.setProperty('--rotation', `${angle}deg`);
-  
-        container.appendChild(img);
+      const flashImages = [];
+      for (let i = 9; i <= 32; i++) {
+        flashImages.push(`flash/flashv/${i}.png`);
       }
-    });
-  });
+      
+      document.getElementById('lucky-button').addEventListener('click', () => {
+        const wrappers = document.querySelectorAll('.mannequin-wrapper');
+      
+        wrappers.forEach(wrapper => {
+          const container = wrapper.querySelector('.tattoo-container');
+      
+          // Clear previous tattoos
+          container.innerHTML = '';
+      
+          // Shuffle the flashImages array and pick first 3
+          const shuffled = flashImages.slice().sort(() => 0.5 - Math.random());
+          const selectedImages = shuffled.slice(0, 3);
+      
+          selectedImages.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.classList.add('tattoo');
+      
+            // Random size between 60px and 160px
+            const randomSize = 60 + Math.random() * 100;
+            img.style.width = `${randomSize}px`;
+      
+            // Random position
+            img.style.top = `${Math.random() * 70}%`;
+            img.style.left = `${Math.random() * 50}%`;
+      
+            // Random rotation
+            const angle = Math.floor(Math.random() * 360);
+            img.style.setProperty('--rotation', `${angle}deg`);
+      
+            container.appendChild(img);
+          });
+        });
+      });
+      
   
   
   
